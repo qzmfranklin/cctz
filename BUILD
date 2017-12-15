@@ -51,6 +51,9 @@ cc_library(
         "include/cctz/time_zone.h",
         "include/cctz/zone_info_source.h",
     ],
+    linkopts = [
+        "-lm",
+    ],
     includes = ["include"],
     visibility = ["//visibility:public"],
     deps = [":civil_time"],
@@ -64,7 +67,7 @@ cc_test(
     srcs = ["src/civil_time_test.cc"],
     deps = [
         ":civil_time",
-        "@com_google_googletest//:gtest_main",
+        "//third_party/gtest:gtest_main",
     ],
 )
 
@@ -75,7 +78,7 @@ cc_test(
     deps = [
         ":civil_time",
         ":time_zone",
-        "@com_google_googletest//:gtest_main",
+        "//third_party/gtest:gtest_main",
     ],
 )
 
@@ -86,7 +89,7 @@ cc_test(
     deps = [
         ":civil_time",
         ":time_zone",
-        "@com_google_googletest//:gtest_main",
+        "//third_party/gtest:gtest_main",
     ],
 )
 
@@ -106,7 +109,7 @@ cc_binary(
     deps = [
         ":civil_time",
         ":time_zone",
-        "@com_google_benchmark//:benchmark",
+        "//third_party/benchmark",
     ],
 )
 
